@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>모바일 청첩장</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/308bd8919c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- 배경음악 자동재생 -->
+<audio id="bgm" src="source/bgm.mp3" loop></audio>
+
+
+  <!-- 팝업 -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <button class="popup-close" id="popup-close">×</button>
+    <h3>참석 여부 체크</h3>
+    <p class="names">노우승 <span class="heart"><i class="fas fa-solid fa-heart"></i></span> 음선아</p>
+    <hr />
+    <div class="info">
+      <p>📅 2025년 10월 25일 토요일 PM 12시 30분</p>
+      <p>📍 실버벨 교회</p>
+    </div>
+    <p class="desc">특별한 날 귀한 발걸음을 참석 여부를 통해 <br>전달해 주세요.</p>
+    <a class="popup-btn" target="_blank" href="https://naver.me/FfBbsIAX">참석여부 체크하기</a>
+  </div>
+</div>
+
+  <!-- 본문 내용 -->
+  <div class="container">
+    <!-- 배너 -->
+    <div class="banner-wrap">
+      <!-- 재생/일시정지 버튼 -->
+       <div id="audio-toggle" class="audio-btn">⏸️</div>
+       <video id="moving_video11" autoplay="autoplay" loop="loop" muted="muted" playsinline="" style="opacity: 1; transition: 1s; mix-blend-mode: screen; position: absolute; left: 0px; top: 0%; width: 100%; display: block;">
+              <source id="moving_video" src="source/daisy.mp4">
+            </video>
+      <img class="banner" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoMhPN%2FbtsOMRABnkX%2FvJIomSMEyXQefGh9DoKVRk%2Fimg.jpg" alt="배너" />
+    </div>
+
+    <div class="section">
+      <div class="title">노우승 
+        <span style="font-size: 15px; color:rgb(116, 116, 116);"> 그리고 </span>
+        음선아</div>
+      <div class="divider"></div>
+      <div class="sub_txt">
+        <div>2025년 10월 25일 토요일 PM 12시 30분</div>
+        <div>실버벨 교회</div>
+      </div>
+      
+    </div>
+
+<div class="section section-invite">
+  <img class="leaf" src="img/leaf.svg" alt="">
+  <div class="title" id="title_sub">결혼합니다</div>
+
+  <div id="invite-paragraphs">
+    <p class="fade-block">여덟 해를 함께 걸으며<br>서로를 바라보고 닮아온 두 사람이<br>이제 하나의 마음으로<br>새로운 시작을 맺으려 합니다.</p>
+
+    <p class="fade-block">한적한 평창의 작은 공간.<br>자연 속에서 소박하게 준비한 자리라<br>찾아오시기에 쉽지 않은 곳임을<br>알고 있습니다.</p>
+
+    <p class="fade-block">그렇기에 계신 자리에서<br>축하해 주시는 것만으로도<br>충분히 뜻깊고 소중하게 여기며<br>큰 기쁨으로 간직하겠습니다.</p>
+
+    <p class="fade-block">부디 시간을 내야 한다는 부담 없이<br>편안한 곳에서 저희의 시작을<br>함께 축복해 주세요.</p>
+
+    <p class="fade-block">소중한 마음을 함께해 주시는 여러분께<br>진심을 담아 감사드립니다.</p>
+  </div>
+</div>
+
+    <div class="section">
+  <div class="title" id="title_sub">연락처</div>
+<p class="contact-line">
+  노경택 · 박순영 <span class="sub_content">차남</span> 노우승
+  <span class="dots">···</span>
+  <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+  <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+</p>
+<p class="contact-line">
+  음영식 · 최계자 <span class="sub_content">장녀</span> 음선아
+  <span class="dots">···</span>
+  <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+  <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+</p>
+</div>
+
+    <div class="section">
+      <div class="title" id="title_sub">캘린더</div>
+      <div id="calendar"></div>
+      <div id="countdown"></div>
+    </div>
+
+<!-- 갤러리 섹션 -->
+   <div class="section">
+  <div class="title fade-title">갤러리</div>
+  <div class="gallery">
+    <div class="tile"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbSVu7C%2FbtsOPygyjza%2FAAAAAAAAAAAAAAAAAAAAAM1ECgyA-tR8ORW1I1twP5ik_rXBKZJtuoEopPOqB0d2%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DnQD1nYFq%252BW3fkA0M4S4MWPtMZL8%253D" alt="갤러리1"></div>
+    <div class="tile"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbW1TQt%2FbtsOQJ9i1MP%2FAAAAAAAAAAAAAAAAAAAAAHH5ViI0se8gS0jmW97Lq84yMnD2OxzhYgKb8pR63sCN%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DTQXerN9%252FTQNPocanfrYDRIoqcVw%253D" alt="갤러리2"></div>
+    <div class="tile"><img src="img/gallery3.jpg" alt="갤러리3"></div>
+    <div class="tile"><img src="img/gallery4.jpg" alt="갤러리4"></div>
+    <div class="tile"><img src="img/gallery5.jpg" alt="갤러리5"></div>
+    <div class="tile"><img src="img/gallery6.jpg" alt="갤러리6"></div>
+    <div class="tile"><img src="img/gallery7.jpg" alt="갤러리7"></div>
+    <div class="tile"><img src="img/gallery8.jpg" alt="갤러리8"></div>
+    <div class="tile"><img src="img/gallery9.jpg" alt="갤러리9"></div>
+  </div>
+</div>
+
+  <!-- 갤러리 팝업 -->
+  <div id="gallery-popup" class="gallery-popup">
+  <div class="gallery-popup-bg" onclick="closeGallery()"></div>
+  <div class="gallery-popup-content">
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <button id="gallery-prev" class="gallery-nav" onclick="prevImage()">←</button>
+    <img id="gallery-popup-img" src="" alt="popup image">
+    <button id="gallery-next" class="gallery-nav" onclick="nextImage()">→</button>
+    <div id="gallery-indicator" class="gallery-indicator">1 / 30</div>
+  </div>
+</div>
+
+
+
+  <!-- 오시는길 -->
+   
+    <div class="section">
+      <div class="title" id="title_sub">오시는 길</div>
+      <div id="daumRoughmapContainer1750674174322" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+    </div>
+
+    <div class="section">
+      <div class="title" id="title_sub">참석 여부</div>
+      <a class="btn" href="https://naver.me/FfBbsIAX">참석 여부를 알려주세요</a>
+    </div>
+
+    <div class="section">
+      <div class="title" id="title_sub">계좌번호</div>
+<div class="accordion">
+  <button class="btn account-toggle" data-target="slide-couple">신랑 & 신부</button>
+  <div class="account-slide" id="slide-couple">
+    신랑 - 농협 1468-02-005284<br>신부 - 우리 3330230203
+  </div>
+
+  <button class="btn account-toggle" data-target="slide-parent">혼주</button>
+  <div class="account-slide" id="slide-parent">
+    신랑 - 국민 30217165401<br>신부 - 국민 30217165401
+  </div>
+</div>
+    </div>
+
+    <div class="footer"></div>
+  </div>
+
+  <!-- 지도 -->
+  <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+  <script charset="UTF-8">
+    new daum.roughmap.Lander({
+      "timestamp" : "1750674174322",
+      "key" : "42wh5pafkv5",
+      "mapWidth" : "425px",
+      "mapHeight" : "360"
+    }).render();
+  </script>
+
+
+<!-- 로딩 오버레이 -->
+<div id="loading-screen">
+  <div class="loading-text">
+    <div class="fade-text" id="text1">노우승</div>
+    <div class="fade-text" id="text2">음선아</div>
+    <div class="fade-text" id="text3">결혼합니다</div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
