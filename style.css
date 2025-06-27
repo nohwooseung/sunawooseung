@@ -120,6 +120,7 @@ img.banner {
   transform: translateY(30px);
   transition: opacity 2s ease, transform 2s ease;
   padding: 20px;
+  overflow-x: hidden; /* 수평 스크롤 방지 */
 }
 
 .section.visible {
@@ -290,15 +291,27 @@ body:not(.loading) .popup {
   overflow: hidden;
 }
 
-.gallery-popup-content img {
-  max-width: 100%;
-  max-height: 100%;
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
-  border-radius: 8px;
-  display: block;
+.gallery-slider-wrapper {
+  width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
 }
+
+.gallery-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slider img {
+  width: 90vw;
+  height: 90vh;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
 
 /* 팝업 닫기/이동 버튼 */
 .gallery-close {
@@ -310,6 +323,7 @@ body:not(.loading) .popup {
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  z-index: 99999;
 }
 
 .gallery-nav {
@@ -407,23 +421,34 @@ color: #596b5aa3;
 }
 
 #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 13px;
-    padding: 0px 41px;
-    margin: 19px auto;
-    max-width: 380px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 13px;
+  padding: 0 10%;
+  margin: 19px auto;
+  max-width: 380px;
+  box-sizing: border-box;
 }
 
 #calendar div {
-  padding: 6px 0;
-  border-radius: 50%;
+  min-width: 2em;
+  min-height: 2em;
+  text-align: center;
 }
 
+
 #calendar .highlight {
-  background-color: #a5d6a7;
-  font-weight: bold;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70%;
+  aspect-ratio: 1 / 1;
+
+  background-color: #b1ddb1;
+  border-radius: 50%;
+
+  margin: auto;
 }
 
 .sunday {
@@ -527,6 +552,20 @@ body.loading {
 /* ============================================
    🔵 지도 및 기타
 ============================================ */
+
+.cont{
+  display: none;
+}
+
+.address{
+  margin: 40px 0 20px 0;
+}
+
+.address strong{
+  font-size: 1rem;
+}
+
+
 .root_daum_roughmap {
   max-width: 100% !important;
   width: 100% !important;
@@ -663,4 +702,38 @@ body.loading {
   border: none;
   margin-bottom: 50px;
   background-color: #fff;
+}
+
+
+/* ============================================
+   🔵 반응형 캘린더 - 400px 이하일때 동작
+============================================ */
+
+
+@media (max-width: 400px) {
+  #calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 13px;
+    width: 100%;
+    max-width: 380px;
+    margin: 19px auto;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  .audio-btn{
+    margin: 0 0 10px -38%;
+  }
+
+}
+
+@media (max-width: 300px) {
+  * {
+    font-size: 4vw;
+  }
+
+  .sub_content{
+    font-size: 4vw;
+  }
 }
