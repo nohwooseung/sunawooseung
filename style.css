@@ -71,7 +71,7 @@ button {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  margin-left: -192.5px; /* container 너비 절반(425 / 2)만큼 왼쪽 이동 */
+  margin: 0 0 10px -170.5px; /* container 너비 절반(425 / 2)만큼 왼쪽 이동 */
   background-color: rgba(210, 210, 210, 0.7);
   padding: 6px 10px;
   border-radius: 16px;
