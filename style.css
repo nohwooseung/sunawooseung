@@ -10,6 +10,12 @@ body {
   font-size: 16px;
 }
 
+body.loading .container {
+  display: none;
+}
+
+
+
 .sub_txt{
   font-size: 14px;
 }
@@ -309,6 +315,18 @@ img.banner {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.account-slide {
+  overflow: hidden;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: height 0.3s ease, padding 0.3s ease;
+}
+.account-slide.open {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 
