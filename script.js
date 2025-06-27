@@ -80,10 +80,12 @@ function openGallery(index) {
   initGallerySlider();
   updateGallery();
   document.getElementById("gallery-popup").classList.add("show");
+  document.body.style.overflow = "hidden"; // 스크롤 막기
 }
 
 function closeGallery() {
   document.getElementById("gallery-popup").classList.remove("show");
+  document.body.style.overflow = "auto"; // 스크롤 복구
 }
 
 function prevImage() {
