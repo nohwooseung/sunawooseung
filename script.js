@@ -75,6 +75,12 @@ function nextImage() {
   }
 }
 
+setTimeout(() => {
+  loadingScreen.style.display = "none";
+  document.documentElement.classList.remove('loading');
+}, 1200);
+
+
 // ✅ DOM이 모두 로드된 후 갤러리 타일에 이벤트 바인딩
 document.addEventListener("DOMContentLoaded", () => {
   const tileImages = document.querySelectorAll(".gallery .tile img");
@@ -173,6 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
     calendarEl.appendChild(day);
   }
 });
+
+document.querySelectorAll(".account-slide").forEach((slide) => {
+  slide.style.height = "0px";
+  slide.style.paddingTop = "0";
+  slide.style.paddingBottom = "0";
+});
+
 
 document.querySelectorAll(".account-toggle").forEach(button => {
   button.addEventListener("click", () => {
