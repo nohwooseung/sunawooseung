@@ -255,7 +255,7 @@ body:not(.loading) .popup {
 
 .tile img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
