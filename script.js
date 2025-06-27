@@ -1,13 +1,61 @@
+// ==================== 확대방지 ====================
+
+document.addEventListener('dblclick', function(e) {
+  e.preventDefault();
+});
+
+
 // ==================== 갤러리 팝업 이미지 배열 ====================
 const galleryImages = [
-  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FoMhPN%2FbtsOMRABnkX%2FAAAAAAAAAAAAAAAAAAAAAMHFwg2ca1Br6qUccc_I0iLNUoQXK26fy4zvzD76FXug%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D%252BeVdmM9qp54eyAYalkhBZieXREQ%253D",
-  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbSVu7C%2FbtsOPygyjza%2FAAAAAAAAAAAAAAAAAAAAAM1ECgyA-tR8ORW1I1twP5ik_rXBKZJtuoEopPOqB0d2%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DnQD1nYFq%252BW3fkA0M4S4MWPtMZL8%253D",
-  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbW1TQt%2FbtsOQJ9i1MP%2FAAAAAAAAAAAAAAAAAAAAAHH5ViI0se8gS0jmW97Lq84yMnD2OxzhYgKb8pR63sCN%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DTQXerN9%252FTQNPocanfrYDRIoqcVw%253D",
-  // ...생략
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FCFxAm%2FbtsOVcqD2iz%2FAAAAAAAAAAAAAAAAAAAAANLD45iUAS0Vf_WZPzcxeXrH3F0jzY2bfg5XlJmFu3SL%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D8y316FC0KrgbJTD2OWH2P2iJYiI%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbrsJgy%2FbtsOVvpVR8N%2FAAAAAAAAAAAAAAAAAAAAAHTpDKilzvNQVKaspEqkjj1zNAwEFJe8KjRRbas8pYjC%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DvFNOq41%252FmDouYIrlA6%252FmMQWqN%252F8%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FHQs8w%2FbtsOUXmVVW8%2FAAAAAAAAAAAAAAAAAAAAAFLc8x_kUCh2LqYBTWRiJ1ISWcDT9eFtTUsLbp9WCSaG%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DgUTe2oN0Lv8QqgU7NFAVpmgHMjk%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FdIJiGq%2FbtsOVJhbbCy%2FAAAAAAAAAAAAAAAAAAAAADq2vVlm7ToJNOqxFLAfzzJLSotI7O7OACWEGQpcx-R3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DmwnmUYr66AUGYCaIuaYdSz36NLk%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FDUfZo%2FbtsOUA6ElSL%2FAAAAAAAAAAAAAAAAAAAAACoN7xvoA-CYV84MbVVtt4AdYyxGqxR86lvm7_D7lqPt%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3Dg0qeyHIwkqD2snSzaWWrw%252F1ytVM%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcLyJWB%2FbtsOVhlJjLy%2FAAAAAAAAAAAAAAAAAAAAAA5SPm6bfErUrtWNtDIg-PSK04AvxOiFq6M-VW_EdKPS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DLVJNsKX6uTm8GiDX8Xmkp4z1rmw%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb99bwk%2FbtsOWn5ZVqE%2FAAAAAAAAAAAAAAAAAAAAAN-CQ64VsphL9xonLmvh7O28ZAnpss-qy94G7irpeILL%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DYknNgyNQdEuQsDeVgqI0BOy9%252BCk%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FnQjL8%2FbtsOUdjvfvW%2FAAAAAAAAAAAAAAAAAAAAAM__yN9zO7gLI6IJzmdu8Voc7OoNgCQPPiMi4ip56q9n%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DyfoWprphhU7UuFu7hRuYZvUNVa8%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Ft8i9y%2FbtsOUVvWzeF%2FAAAAAAAAAAAAAAAAAAAAAEJ2h47TEjVBkAtBpTOf8xyqfHn7rbIQM7auDj81vUZa%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DlY%252BIz7xVEmmJger7LOdHJj%252B8bc8%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FddvIa4%2FbtsOVhF6z68%2FAAAAAAAAAAAAAAAAAAAAABOrBst7BBr85PE5y_IRUd1L0U5QiKLWZB_DHizBLvw7%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3Ddi3gI6MlD3ZKVA56RUNjlVjlX1U%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F2vtu1%2FbtsOWgsjBXw%2FAAAAAAAAAAAAAAAAAAAAAJXZWxl_eu_8ECAwPzFC24JWm8yYGiRW7tCqfl9dL8Un%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DJBJjZ6wLB29NhBqqHTW%252FQTY7LRU%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbC1xTi%2FbtsOUuFmKn4%2FAAAAAAAAAAAAAAAAAAAAAD4wohgzhEMwhTp4CWrvXgSJG8bocHam8Cy3bMcKMyfg%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D470cXoljRo6JFlVBHayzZz%252BMQY4%253D",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
 ];
 
 let currentIndex = 0;
 const totalImages = galleryImages.length;
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tiles = document.querySelectorAll(".gallery .tile img");
+
+  tiles.forEach((img, index) => {
+    const src = galleryImages[index];
+    if (src && src.trim() !== "") {
+      img.src = src;
+    } else {
+      img.parentElement.style.display = "none"; // 이미지가 없으면 해당 타일 숨김
+    }
+  });
+});
+
 
 // ==================== 갤러리 팝업 열기/닫기 ====================
 function openGallery(index) {
