@@ -59,7 +59,7 @@
 
     <div class="section">
       <div class="title">노우승 
-        <span style="font-size: 15px; color:rgb(116, 116, 116);"> 그리고 </span>
+        <span style="margin:0 10px 0 10px; font-size: 15px; color:rgb(116, 116, 116);"> 그리고 </span>
         음선아</div>
       <div class="divider"></div>
       <div class="sub_txt">
@@ -134,13 +134,21 @@
   <!-- 갤러리 팝업 -->
   <div id="gallery-popup" class="gallery-popup">
   <div class="gallery-popup-bg" onclick="closeGallery()"></div>
-  <div class="gallery-popup-content">
-    <button class="gallery-close" onclick="closeGallery()">✕</button>
-    <button id="gallery-prev" class="gallery-nav" onclick="prevImage()"><i class="fas fa-solid fa-chevron-left"></i></button>
-    <img id="gallery-popup-img" src="" alt="popup image">
-    <button id="gallery-next" class="gallery-nav" onclick="nextImage()"><i class="fas fa-solid fa-chevron-right"></i></button>
-    <div id="gallery-indicator" class="gallery-indicator">1 / 30</div>
+
+<!-- 갤러리 팝업 안쪽 -->
+<div class="gallery-popup-content">
+  <button class="gallery-close" onclick="closeGallery()">✕</button>
+  <button id="gallery-prev" class="gallery-nav" onclick="prevImage()"><i class="fas fa-solid fa-chevron-left"></i></button>
+  
+  <div class="gallery-slider-wrapper">
+    <div class="gallery-slider" id="gallery-slider">
+      <!-- 이미지들이 js에서 삽입됨 -->
+    </div>
   </div>
+
+  <button id="gallery-next" class="gallery-nav" onclick="nextImage()"><i class="fas fa-solid fa-chevron-right"></i></button>
+  <div id="gallery-indicator" class="gallery-indicator">1 / 10</div>
+</div>
 </div>
 
 
@@ -148,14 +156,19 @@
   <!-- 오시는길 -->
    
     <div class="section" style="
-    margin: 0 0 -105px 0;">
+    margin: 0 0 -20px 0;">
       <div class="title" id="title_sub">오시는 길</div>
+      <div class="address">
+        <strong>실버벨 교회</strong>
+        <p><a href="https://place.map.kakao.com/1929478269" target="_blank" style="color: black;">강원특별자치도 평창군 대관령면 경강로 5107</a></p>
+      </div>
+
       <div id="daumRoughmapContainer1750674174322" class="root_daum_roughmap root_daum_roughmap_landing"></div>
     </div>
 
     <div class="section">
       <div class="title" id="title_sub">참석 여부</div>
-      <a class="btn" href="https://naver.me/FfBbsIAX">참석 여부를 알려주세요</a>
+      <a class="btn" target="_blank" href="https://naver.me/FfBbsIAX">참석 여부를 알려주세요</a>
     </div>
 
 
