@@ -324,6 +324,11 @@ body:not(.loading) .popup {
   z-index: 10;
 }
 
+.gallery-nav i{
+  font-size: 1.8rem;
+}
+
+
 #gallery-prev {
   left: 0;
 }
