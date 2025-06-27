@@ -39,47 +39,51 @@ const galleryImages = [
   ""
 ];
 
-let currentIndex = 0;
-const totalImages = galleryImages.length;
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const tiles = document.querySelectorAll(".gallery .tile img");
 
   tiles.forEach((img, index) => {
     const src = galleryImages[index];
     if (src && src.trim() !== "") {
-      img.src = src;
+      img.setAttribute("src", src); // 반드시 src 속성으로 삽입
     } else {
-      img.parentElement.style.display = "none"; // 이미지가 없으면 해당 타일 숨김
+      img.parentElement.style.display = "none"; // 이미지 없으면 숨김
     }
   });
 });
 
 
-// ==================== 갤러리 팝업 열기/닫기 ====================
+const slider = document.getElementById("gallery-slider");
+const indicator = document.getElementById("gallery-indicator");
+let currentIndex = 0;
+
+function initGallerySlider() {
+  slider.innerHTML = "";
+  galleryImages.forEach((src) => {
+    if (src && src.trim() !== "") {
+      const img = document.createElement("img");
+      img.src = src;
+      slider.appendChild(img);
+    }
+  });
+}
+
+function updateGallery() {
+  const total = slider.children.length;
+  const offset = -currentIndex * 90; // 이미지 하나당 90vw 기준
+  slider.style.transform = `translateX(${offset}vw)`;
+  indicator.textContent = `${currentIndex + 1} / ${total}`;
+}
+
 function openGallery(index) {
   currentIndex = index;
-  document.getElementById("gallery-popup").classList.add("show");
+  initGallerySlider();
   updateGallery();
+  document.getElementById("gallery-popup").classList.add("show");
 }
 
 function closeGallery() {
   document.getElementById("gallery-popup").classList.remove("show");
-}
-
-// ==================== 갤러리 이미지 업데이트 ====================
-function updateGallery() {
-  const img = document.getElementById("gallery-popup-img");
-  const indicator = document.getElementById("gallery-indicator");
-  const prevBtn = document.getElementById("gallery-prev");
-  const nextBtn = document.getElementById("gallery-next");
-
-  img.src = galleryImages[currentIndex];
-  indicator.textContent = `${currentIndex + 1} / ${totalImages}`;
-
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === totalImages - 1;
 }
 
 function prevImage() {
@@ -90,11 +94,25 @@ function prevImage() {
 }
 
 function nextImage() {
-  if (currentIndex < totalImages - 1) {
+  if (currentIndex < slider.children.length - 1) {
     currentIndex++;
     updateGallery();
   }
 }
+
+let startX = 0;
+
+const galleryPopup = document.getElementById("gallery-popup");
+
+galleryPopup.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+galleryPopup.addEventListener("touchend", (e) => {
+  const deltaX = e.changedTouches[0].clientX - startX;
+  if (deltaX > 50) prevImage();
+  else if (deltaX < -50) nextImage();
+});
 
 // ==================== 로딩 화면 처리 ====================
 window.addEventListener("load", () => {
