@@ -1,107 +1,98 @@
+/* ============================================
+   🔵 기본 설정 및 레이아웃
+============================================ */
 * {
-text-decoration: none;
+  text-decoration: none;
+}
+
+html{
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  height: 100%;
   margin: 0;
+  padding: 0;
   background-color: #e0f0e0;
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
-  font-size: 16px;
+  font-size: 0.95rem;
 }
 
-body.loading .container {
-  display: none;
+.container {
+  min-height: 100vh; /* 화면 전체 높이 */
+  box-sizing: border-box;
+  position: relative; /* 버튼 위치 기준 설정 */
+  max-width: 425px;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding-bottom: 0 !important;
 }
 
+body:not(.loading) .container {
+  opacity: 1;
+}
 
+body.no-scroll {
+  overflow: hidden;
+}
 
-.sub_txt{
+/* ============================================
+   🔵 텍스트 및 버튼 스타일
+============================================ */
+.sub_txt {
   font-size: 14px;
 }
 
 button {
   font-family: "Nanum Myeongjo", serif;
 }
-.container {
-  max-width: 425px;
-  margin: 0 auto;
-  background-color: white;
-}
 
-#countdown{
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.popup-box {
-  background: white;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 320px;
-  padding: 50px 20px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.popup-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  border: none;
-  background: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.popup-box h3 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-.popup-box .names {
-  margin-top: 8px;
-  font-size: 1rem;
-}
-.heart {
-  color: #f26;
-}
-.popup-box hr {
-  margin: 16px 0;
-  border: none;
-  border-top: 1px dashed #ccc;
-}
-.popup-box .info {
-  font-size: 0.9rem;
-  color: #666;
-}
-.popup-box .desc {
-  margin-top: 16px;
-  font-size: 0.95rem;
-  color: #444;
-}
-.popup-btn {
+.btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 16px;
-  background-color: #333;
-  color: white;
+  background: #e0f0e0;
+  color: #000;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 15px;
   text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 14px;
 }
+
+/* ============================================
+   🔵 오디오 제어 버튼
+============================================ */
+.audio-btn {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -192.5px; /* container 너비 절반(425 / 2)만큼 왼쪽 이동 */
+  background-color: rgba(210, 210, 210, 0.7);
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.audio-btn i{
+  font-size: 0.8rem;
+  color: #ffffff; /* 또는 원하시는 색상 */
+}
+
+/* ============================================
+   🔵 배너 및 영상 영역
+============================================ */
 .banner-wrap {
-  position: relative; /* 기준 부모 설정 */
+  position: relative;
   max-width: 425px;
   margin: 0 auto;
 }
+
 .banner-wrap::after {
   content: "";
   position: absolute;
@@ -112,6 +103,7 @@ button {
   background: linear-gradient(to bottom, rgba(255,255,255,0), white 100%);
   pointer-events: none;
 }
+
 img.banner {
   display: block;
   width: 100%;
@@ -119,12 +111,10 @@ img.banner {
   height: auto;
   object-fit: cover;
 }
-.root_daum_roughmap {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
+
+/* ============================================
+   🔵 섹션 & 페이드인 애니메이션
+============================================ */
 .section {
   opacity: 0;
   transform: translateY(30px);
@@ -132,18 +122,19 @@ img.banner {
   padding: 20px;
 }
 
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  margin: 50px auto;
+}
+
 .section-invite p {
   line-height: 1.8;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#title_sub{
-    color: #81a582;
-    margin: 30px 0;
+#title_sub {
+  color: #81a582;
+  margin: 30px 0 18px 0;
 }
 
 .title {
@@ -152,58 +143,99 @@ img.banner {
   margin-top: 30px;
 }
 
-
-
 .divider {
   width: 60%;
   height: 1px;
   background: #a5d6a7;
   margin: 5px auto 15px;
 }
-/* 갤러리 */
-.gallery {
-  padding: 0 10px; /* 좌우 여백 추가 */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  box-sizing: border-box;
-}
 
-.tile {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #ccc;
-  overflow: hidden;
-  position: relative;
-}
-
-.tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 가로폭 채우기 위해 cover 사용 */
-  display: block;
-}
-
-
+/* ============================================
+   🔵 팝업 (참석 여부)
+============================================ */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.popup-content {
+body:not(.loading) .popup {
+  opacity: 1;
+}
+
+.popup-box {
   background: white;
-  padding: 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+  padding: 16px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-box h3 {
+  margin: 0 0 25px 0;
+  font-size: 1rem;
+}
+
+.popup-box .names {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.heart {
+  color: #f26;
+}
+
+.popup-box hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px dashed #ccc;
+}
+
+.popup-box .info {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.popup-box .desc {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.popup-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   🔵 갤러리 타일
+============================================ */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -227,7 +259,9 @@ img.banner {
   object-fit: cover;
 }
 
-/* 기본적으로 팝업은 숨김 */
+/* ============================================
+   🔵 갤러리 팝업 (전체 보기)
+============================================ */
 .gallery-popup {
   position: fixed;
   top: 0;
@@ -266,7 +300,7 @@ img.banner {
   display: block;
 }
 
-/* 닫기 버튼 */
+/* 팝업 닫기/이동 버튼 */
 .gallery-close {
   position: absolute;
   top: 0;
@@ -278,7 +312,6 @@ img.banner {
   cursor: pointer;
 }
 
-/* 좌우 이동 버튼 */
 .gallery-nav {
   position: absolute;
   top: 50%;
@@ -299,22 +332,24 @@ img.banner {
   right: 0;
 }
 
-/* 인디케이터 */
 .gallery-indicator {
   margin-top: 10px;
   color: white;
   font-size: 1rem;
 }
 
+/* ============================================
+   🔵 계좌번호 아코디언
+============================================ */
 .account-toggle {
   font-family: "Nanum Myeongjo", serif;
-  background-color: #a5d6a7;
+  background-color: #e0f0e0;
   width: 100%;
   padding: 8px 16px;
   margin-top: 10px;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 14px;
 }
 
 .account-slide {
@@ -324,85 +359,76 @@ img.banner {
   padding-bottom: 0;
   transition: height 0.3s ease, padding 0.3s ease;
 }
+
 .account-slide.open {
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 21px;
+    font-size: 1rem;
+    justify-content: space-between;
+}
 
-.audio-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-size: 1.2rem;
+.copy-btn {
+  background: none;
+  border: none;
   cursor: pointer;
-  z-index: 2;
+  font-size: 1.1rem;
+  transition: all 0.2s;
 }
 
-
-.btn {
-  display: inline-block;
-  background: #a5d6a7;
-  color: #000;
-  width: 100%;
-  padding: 10px 0;
-  margin-top: 15px;
-  text-decoration: none;
-  font-size: 14px;
+.copy-btn:active {
+  transform: scale(1.2);
 }
+
+.fa-check{
+color: #596b5aa3;
+}
+
+.fa-copy{
+color: #596b5aa3;
+}
+
+/* ============================================
+   🔵 달력 및 카운트다운
+============================================ */
+#countdown {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 #calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-  padding: 0 40px;  /* 좌우 여백 추가 */
-  margin: 20px auto;
-  max-width: 380px; /* 가로 최대폭 제한 (선택사항) */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 13px;
+    padding: 0px 41px;
+    margin: 19px auto;
+    max-width: 380px;
 }
+
 #calendar div {
   padding: 6px 0;
   border-radius: 50%;
 }
+
 #calendar .highlight {
   background-color: #a5d6a7;
   font-weight: bold;
+  color: #fff;
 }
 
-.icon {
-  width: 13px;
-  height: 13px;
-  vertical-align: middle;
-  margin-left: 6px;
-  margin-bottom: 3px;
+.sunday {
+  color: red;
 }
 
-.section.section_address {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.gr_call_dot::after {
-    content: "";
-    display: inline-block;
-    width: 1px;
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.gr_call_dot {
-    position: relative;
-    margin: 0 6px 0 3px;
-}
-
-.leaf{
-    width: 35px;
-}
+/* ============================================
+   🔵 연락처
+============================================ */
 .contact-line {
   display: flex;
   align-items: center;
@@ -411,24 +437,28 @@ img.banner {
   font-size: 1rem;
 }
 
-.dots {
-  font-size: 1.2rem;
-  color: #aaa;
-  line-height: 1;
-  transform: translateY(1px); /* 수직 정렬 미세 조정 */
-}
-
 .icon {
   width: 14px;
   height: 14px;
   vertical-align: middle;
+  margin-left: 6px;
+  margin-bottom: 3px;
 }
 
-.sub_content{
-    font-size: 13px;
+.dots {
+  font-size: 1.2rem;
+  color: #aaa;
+  line-height: 1;
+  transform: translateY(1px);
 }
 
+.sub_content {
+  font-size: 13px;
+}
 
+/* ============================================
+   🔵 초대 문단 애니메이션
+============================================ */
 .fade-block {
   opacity: 0;
   transform: translateY(10px);
@@ -440,22 +470,30 @@ img.banner {
   transform: translateY(0);
 }
 
-#loading-screen {
+/* ============================================
+   🔵 로딩 화면
+============================================ */
+
+body.loading {
+  overflow: hidden;
+}
+
+.loading-screen {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #eaf2e5;
-  z-index: 10000;
+  top: 0;
+  left: 0;
+  z-index: 99999; /* 가장 위 */
+  width: 100%;
+  height: 100%;
+  background: #e0f0e0;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  opacity: 1;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.5s ease;
+  overflow: hidden; /* 텍스트 넘침 방지 */
 }
 
-#loading-screen.fade-out {
+.loading-screen.fade-out {
   opacity: 0;
   pointer-events: none;
 }
@@ -473,8 +511,152 @@ img.banner {
   margin: 10px 0;
 }
 
-.footer{
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 텍스트 중앙 정렬 */
+}
+
+
+/* ============================================
+   🔵 지도 및 기타
+============================================ */
+.root_daum_roughmap {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.section.section_address {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.leaf {
+  width: 35px;
+  margin-bottom: 30px;
+}
+
+.footer {
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+
+/* 혼주 팝업 상단 영역 (헤더) */
+#parent-popup .popup-box h3 {
+  background-color: #adcaa9;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+  padding: 18px 0;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+  width: calc(100% + 32px); /* padding 보정 포함 너비 확대 */
+  margin-left: -16px;       /* 좌측으로 당겨서 맞춤 */
+  box-sizing: border-box;
+}
+
+/* 팝업 전체 박스 스타일 조정 */
+#parent-popup .parent-popup-box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 0 16px 20px 16px;
+  width: 100%;
+  max-width: 375px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 닫기 버튼 */
+#parent-popup .popup-close {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* 부모 섹션 제목 */
+#parent-popup .info p strong {
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+/* 이름 + 아이콘 한 줄 정렬 */
+#parent-popup .parents {
+  display: flex;
+  align-items: flex-start;  /* ← 이 부분을 수정 */
+  justify-content: space-between;
+  margin: 6px 0;
+  padding: 0 4px;
+}
+
+#parent-popup .parents .name {
+  font-size: 1rem;
+  margin: 0;
+  flex: 1;
+  text-align: left;
+  margin-left: 4px;
+}
+
+#parent-popup .parents span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.parents .icon {
+  width: 15px;
+  height: 22px;
+}
+
+/* ============================================
+   🔵 푸터
+============================================ */
+
+
+/* 푸터 구분선 */
+.footer-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 40px auto 20px;
+  width: 60%; /* ✅ 전체의 60%만 사용 */
+}
+
+/* 푸터 전체 박스 */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+/* 푸터 버튼 공통 */
+.footer-btn {
+  display: inline-block;
+  color: #000;
+  width: 95%;
+  padding: 10px 0;
+  margin-top: 15px;
+  text-decoration: none;
+  font-size: 15px;
+  border: none;
+  margin-bottom: 50px;
+  background-color: #fff;
 }
