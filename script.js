@@ -80,12 +80,21 @@ function openGallery(index) {
   initGallerySlider();
   updateGallery();
   document.getElementById("gallery-popup").classList.add("show");
-  document.body.style.overflow = "hidden"; // 스크롤 막기
+
+  // 스크롤 방지
+  document.body.classList.add("no-scroll");
+  document.body.dataset.scrollY = window.scrollY; // 현재 위치 저장
+  document.body.style.top = `-${window.scrollY}px`; // 위치 고정
 }
 
 function closeGallery() {
   document.getElementById("gallery-popup").classList.remove("show");
-  document.body.style.overflow = "auto"; // 스크롤 복구
+
+  // 스크롤 복구
+  document.body.classList.remove("no-scroll");
+  const scrollY = document.body.dataset.scrollY || "0";
+  document.body.style.top = "";
+  window.scrollTo(0, parseInt(scrollY));
 }
 
 function prevImage() {
