@@ -92,11 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   // 슬라이드용 닫기 버튼 생성
-  const slideBackBtn = document.createElement("button");
-  slideBackBtn.className = "gallery-back-button";
-  slideBackBtn.innerHTML = '<i class="fas fa-solid fa-grip-vertical"></i>';
+  const slideBackBtn = document.getElementById("gallery-back-button");
   slideBackBtn.addEventListener("click", closeGallery);
-  document.querySelector(".gallery-popup-content").appendChild(slideBackBtn);
 
 // 이미지 6~8번째 (하단 3개)에 그라데이션 오버레이 추가
 tiles.forEach((img, index) => {
@@ -176,6 +173,17 @@ document.getElementById("gallery-popup").addEventListener("touchend", (e) => {
   else if (deltaX < -50) nextImage();
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeToMainBtn = document.getElementById("gallery-close-main");
+  if (closeToMainBtn) {
+    closeToMainBtn.addEventListener("click", () => {
+      const galleryPopup = document.getElementById("gallery-popup");
+      galleryPopup.classList.remove("show");
+      document.body.classList.remove("no-scroll");
+    });
+  }
+});
 
 
 // ==================== 로딩 화면 처리 ====================
