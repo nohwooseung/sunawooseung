@@ -138,7 +138,7 @@
 
 <!-- 갤러리 팝업 안쪽 -->
 <div class="gallery-popup-content">
-  <button class="gallery-close" onclick="closeGallery()">✕</button>
+  <button class="gallery-back-button"><i class="fas fa-solid fa-grip-vertical"></i></button>
   <button id="gallery-prev" class="gallery-nav" onclick="prevImage()"><i class="fas fa-solid fa-chevron-left"></i></button>
   
   <div class="gallery-slider-wrapper">
@@ -236,40 +236,50 @@
     <button class="popup-close parents" id="parent-popup-close">×</button>
     <h3>혼주에게 연락하기</h3>
     </div>
-    <div class="info">
-      <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신랑측 혼주</strong></p>
-      <div class="parents">
-        <p class="name">노경택</p>
-        <span>
-          <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-          <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-        </span>
-      </div>
-      <div class="parents">
-        <p class="name">박순영</p>
-        <span>
-          <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-          <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-        </span>
-      </div>
+      <div class="info">
+        <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신랑측 혼주</strong></p>
+        <div class="parents">
+          <p class="name">노경택</p>
+          <span>
+            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+          </span>
+        </div>
+        <div class="parents">
+          <p class="name">박순영</p>
+          <span>
+            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+          </span>
+        </div>
 
-      <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신부측 혼주</strong></p>
-      <div class="parents">
-        <p class="name">음영식</p>
-        <span>
-          <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-          <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-        </span>
-      </div>
-      <div class="parents">
-        <p class="name">최계자</p>
-        <span>
-          <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-          <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-        </span>
-      </div>
+        <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신부측 혼주</strong></p>
+        <div class="parents">
+          <p class="name">음영식</p>
+          <span>
+            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+          </span>
+        </div>
+        <div class="parents">
+          <p class="name">최계자</p>
+          <span>
+            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
+            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+          </span>
+        </div>
+    </div>
   </div>
 </div>
+
+<!-- 전체 이미지 목록 팝업 -->
+<div id="gallery-grid-popup" class="gallery-grid-popup">
+  <button id="grid-close-btn" class="gallery-close">✕</button>
+  <div class="gallery-grid-content">
+    <div id="gallery-grid-inner" class="gallery-grid"></div>
+  </div>
+</div>
+
 
 
 <script src="script.js"></script>
