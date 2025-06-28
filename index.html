@@ -16,11 +16,10 @@
 
 <!-- 로딩 오버레이 -->
 <div class="loading-screen" id="loading-screen">
-  <div id="loading-text" class="loading-text">Loading...</div> <!-- 추가 -->
+  <div id="loading-text" class="text_color loading-text">Loading...</div> <!-- 추가 -->
   <div class="loading-wrapper">
-    <div id="text1" class="loading-text fade-text">노우승</div>
-    <div id="text2" class="loading-text fade-text">음선아</div>
-    <div id="text3" class="loading-text fade-text">결혼합니다</div>
+    <div id="text1" class="text_color loading-text fade-text"><p class="text_color">노우승</p><p class="text_color">음선아</p></div>
+    <div id="text3" class="text_color_B loading-text fade-text">결혼합니다</div>
   </div>
 </div>
 
@@ -34,14 +33,14 @@
   <div class="popup-box">
     <button class="popup-close" id="popup-close">×</button>
     <h3>참석 여부 체크</h3>
-    <p class="names">노우승 <span class="heart"><i class="fas fa-solid fa-heart" style="color:#b1ddb1; padding: 0 10px;"></i></span> 음선아</p>
+    <p class="names">노우승 <span class="heart"><i class="fas fa-solid fa-heart" style="color:#bccf7e; padding: 0 10px;"></i></span> 음선아</p>
     <hr />
     <div class="info">
-      <p>📅 2025년 10월 25일 토요일 PM 12시 30분</p>
-      <p>📍 실버벨 교회</p>
+      <p><i style="margin-right: 5px;" class="fas fa-solid fa-calendar"></i>  2025년 10월 25일 토요일 PM 12시 30분</p>
+      <p><i style="margin-right: 5px;" class="fas fa-solid fa-map"></i>  실버벨 교회</p>
     </div>
     <p class="desc">특별한 날 귀한 발걸음을 참석 여부를 통해 <br>전달해 주세요.</p>
-    <a class="popup-btn" target="_blank" href="https://naver.me/FfBbsIAX">참석여부 체크하기</a>
+    <a class="btn_color popup-btn" target="_blank" href="https://naver.me/FfBbsIAX">참석여부 체크하기</a>
   </div>
 </div>
 
@@ -61,9 +60,9 @@
 
     <div class="section">
       <div class="title">노우승 
-        <span style="margin:0 10px 0 10px; font-size: 15px; color:rgb(116, 116, 116);"> 그리고 </span>
+        <span class="text_color" style="margin:0 10px 0 10px; font-size: 15px;"> 그리고 </span>
         음선아</div>
-      <div class="divider"></div>
+        <hr class="title_hr"/>
       <div class="sub_txt">
         <div>2025년 10월 25일 토요일 PM 12시 30분</div>
         <div>실버벨 교회</div>
@@ -91,28 +90,28 @@
 <!-- 연락처 섹션 -->
 
     <div class="section">
-  <div class="title" id="title_sub">연락처</div>
-<p class="contact-line">
-  노경택 · 박순영 <span class="sub_content">차남</span> 노우승
-  <span class="dots">···</span>
-  <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-  <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-</p>
-<p class="contact-line">
-  음영식 · 최계자 <span class="sub_content">장녀</span> 음선아
-  <span class="dots">···</span>
-  <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-  <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
-</p>
-
-<a class="btn" id="parent-contact-btn">혼주에게 연락하기</a>
+      <div class="title" id="title_sub">연락처</div>
+      <p class="contact-line">
+        노경택 · 박순영 <span class="sub_content">차남</span> 노우승
+        <span class="dots">···</span>
+        <a href="tel:01098909893"><i class="fas fa-solid fa-phone"></i></a>
+        <a href="sms:01098909893"><i class="fas fa-solid fa-envelope"></i></a>
+      </p>
+      <p class="contact-line">
+        음영식 · 최계자 <span class="sub_content">장녀</span> 음선아
+        <span class="dots">···</span>
+        <a href="tel:01075799522"><i class="fas fa-solid fa-phone"></i></a>
+        <a href="sms:01075799522"><i class="fas fa-solid fa-envelope"></i></a>
+      </p>
+      <a class="btn_color btn" id="parent-contact-btn">혼주에게 연락하기</a>
 </div>
 
 <!-- 캘린더 섹션 -->
 
-    <div class="section">
+    <div class="section_color section">
       <div class="title" id="title_sub">캘린더</div>
-      <div>10월</div>
+      <div style="margin-bottom: 10px;">2025년 10월 25일</div>
+      <div>토요일 오후 12시 30분</div>
       <div id="calendar"></div>
       <div id="countdown"></div>
     </div>
@@ -157,20 +156,27 @@
 
   <!-- 오시는길 -->
    
-    <div class="section" style="
+    <div class="section_color section" style="
     margin: 0 0 -20px 0;">
       <div class="title" id="title_sub">오시는 길</div>
       <div class="address">
         <strong>실버벨 교회</strong>
-        <p><a href="https://place.map.kakao.com/1929478269" target="_blank" style="color: black;">강원특별자치도 평창군 대관령면 경강로 5107</a></p>
+        <p><a href="https://place.map.kakao.com/1929478269" target="_blank">강원특별자치도 평창군 대관령면 경강로 5107</a></p>
       </div>
 
       <div id="daumRoughmapContainer1750674174322" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+      <div class="location_address_link_wrap">
+        <div class="kakao_map"><a href="https://kko.kakao.com/bgesiixxMo"><img src="img/kakao_map.png" alt="kakaomap">카카오맵</a></div>
+        <div class="naver_map"><a href="https://naver.me/Fmf6hGog"><img src="img/naver_map.png" alt="navermap">네이버 지도</a></div>
+      </div>
     </div>
+
+
+  <!-- 참석여부 -->
 
     <div class="section">
       <div class="title" id="title_sub">참석 여부</div>
-      <a class="btn" target="_blank" href="https://naver.me/FfBbsIAX">참석 여부를 알려주세요</a>
+      <a class="btn_color btn" target="_blank" href="https://naver.me/FfBbsIAX">참석 여부를 알려주세요</a>
     </div>
 
 
@@ -179,32 +185,32 @@
     <div class="section">
       <div class="title" id="title_sub">계좌번호</div>
       <div class="accordion">
-        <button class="btn account-toggle" data-target="slide-couple">신랑 & 신부</button>
+        <button class="btn_color btn account-toggle" data-target="slide-couple">신랑 & 신부</button>
         <div class="account-slide" id="slide-couple">
           <div class="account-item">
-            <span class="label">신랑 - 농협</span>
+            <span class="label">노우승 - 농협</span>
             <span class="account" data-account="1468-02-005284">1468-02-005284</span>
             <button class="copy-btn"><i class="fas fa-solid fa-copy"></i></button>
           </div>
           <div class="account-item">
-            <span class="label">신부 - 우리</span>
-            <span class="account" data-account="3330230203">3330230203</span>
+            <span class="label">음선아 - 신한</span>
+            <span class="account" data-account="110-489-231448">110-489-231448</span>
             <button class="copy-btn"><i class="fas fa-solid fa-copy"></i></button>
           </div>
         </div>
         
         <div style="margin: 20px;"></div>
 
-        <button class="btn account-toggle" data-target="slide-parent">혼주</button>
+        <button class="btn_color btn account-toggle" data-target="slide-parent">혼주</button>
         <div class="account-slide" id="slide-parent">
           <div class="account-item">
-            <span class="label">신랑 - 농협</span>
-            <span class="account" data-account="1468-02-005284">1468-02-005284</span>
+            <span class="label">음영식 - 국민</span>
+            <span class="account" data-account="210-21-1220666">210-21-1220666</span>
             <button class="copy-btn"><i class="fas fa-solid fa-copy"></i></button>
           </div>
           <div class="account-item">
-            <span class="label">신부 - 우리</span>
-            <span class="account" data-account="3330230203">3330230203</span>
+            <span class="label">최계자 - 국민</span>
+            <span class="account" data-account="071-21-0660891">071-21-0660891</span>
             <button class="copy-btn"><i class="fas fa-solid fa-copy"></i></button>
           </div>
         </div>
@@ -212,10 +218,17 @@
     </div>
 
         <!-- 계좌번호 섹션의 마지막에 추가 -->
-    <hr class="footer-divider" />
+    
     <div class="footer">
-      <button id="copy-url-btn" class="footer-btn" style="color: #81a582;">청첩장 URL 복사하기<i class="fas fa-solid fa-link" style="margin-left: 20px;"></i></button>
+      <hr class="footer-divider" />
+      <button id="copy-url-btn" class="footer-btn">청첩장 URL 복사하기<i class="fas fa-solid fa-link" style="margin-left: 20px;"></i></button>
+      <hr class="footer-divider" />
+      <div class="copyright">
+        <p>MADE BY SUNA & WOOSEUNG</p>
+      </div>
     </div>
+    
+
   </div>
 
 
@@ -238,35 +251,35 @@
     <h3>혼주에게 연락하기</h3>
     </div>
       <div class="info">
-        <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신랑측 혼주</strong></p>
+        <p style="margin-bottom: 8px;"><strong>신랑측 혼주</strong></p>
         <div class="parents">
           <p class="name">노경택</p>
           <span>
-            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+            <a href="tel:01052313066"><i class="fas fa-solid fa-phone"></i></a>
+            <a href="sms:01052313066"><i class="fas fa-solid fa-envelope"></i></a>
           </span>
         </div>
         <div class="parents">
           <p class="name">박순영</p>
           <span>
-            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+            <a href="tel:01029369616"><i class="fas fa-solid fa-phone"></i></a>
+            <a href="sms:01029369616"><i class="fas fa-solid fa-envelope"></i></a>
           </span>
         </div>
-
-        <p style="margin-bottom: 8px;"><strong style="margin-right: 258px; font-size: 14px;">신부측 혼주</strong></p>
+        <hr/>
+        <p style="margin-bottom: 8px;"><strong>신부측 혼주</strong></p>
         <div class="parents">
           <p class="name">음영식</p>
           <span>
-            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+            <a href="tel:01082269522"><i class="fas fa-solid fa-phone"></i></a>
+            <a href="sms:01082269522"><i class="fas fa-solid fa-envelope"></i></a>
           </span>
         </div>
         <div class="parents">
           <p class="name">최계자</p>
           <span>
-            <a href="tel:01098909893"><img src="img/call.svg" alt="전화" class="icon" /></a>
-            <a href="sms:01098909893"><img src="img/sms.svg" alt="문자" class="icon" /></a>
+            <a href="tel:01084779522"><i class="fas fa-solid fa-phone"></i></a>
+            <a href="sms:01084779522"><i class="fas fa-solid fa-envelope"></i></a>
           </span>
         </div>
     </div>
