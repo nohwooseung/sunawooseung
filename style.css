@@ -821,7 +821,7 @@ body.loading {
   padding: 3px 0;
   border: 1px solid #737a5e2b;
   border-radius: 3px;
-  margin: 0 8px;
+  margin: 0 20px;
   width: 100%;
   display: flex;
   justify-content: center;
