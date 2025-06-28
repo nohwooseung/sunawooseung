@@ -185,18 +185,27 @@ window.addEventListener("load", () => {
   const text2 = document.getElementById("text2");
   const text3 = document.getElementById("text3");
   const loadingScreen = document.getElementById("loading-screen");
+  const loadingText = document.getElementById("loading-text");
 
-  setTimeout(() => text1.style.opacity = 1, 500);
-  setTimeout(() => text2.style.opacity = 1, 2000);
-  setTimeout(() => text3.style.opacity = 1, 3500);
-
+  // "Loading..." 1초간 보여주고 제거
   setTimeout(() => {
-    loadingScreen.classList.add("fade-out");
+    loadingText.remove();
+
+    // 이후 텍스트 순차 등장
+    setTimeout(() => text1.style.opacity = 1, 0);
+    setTimeout(() => text2.style.opacity = 1, 1500);
+    setTimeout(() => text3.style.opacity = 1, 3000);
+
+    // 전체 로딩 화면 제거
     setTimeout(() => {
-      loadingScreen.style.display = "none";
-      document.body.classList.remove("loading");
-    }, 500);
-  }, 5500);
+      loadingScreen.classList.add("fade-out");
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+        document.body.classList.remove("loading");
+      }, 500);
+    }, 4500);
+
+  }, 1000);
 });
 
 // ==================== 갤러리 이미지 클릭 이벤트 ====================
