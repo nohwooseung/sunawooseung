@@ -526,28 +526,36 @@ body:not(.loading) .popup {
   flex-shrink: 0;
 }
 
+.gallery_button_wrap{
+  position: absolute;
+  top: -3px;
+  right: 0;
+  z-index: 99999;
+}
+
+
 /*갤러리 슬라이드 목록버튼*/
 .gallery-back-button {
-  position: absolute;
-  top: 0;
-  right:0;
   background: none;
   border: none;
-  color: white;
   font-size: 25px;
   cursor: pointer;
   z-index: 99999;
 }
 
 
+#gallery-grid-popup .gallery-close{
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  z-index: 99999;
+}
+
 /* 팝업 닫기/이동 버튼 */
 .gallery-close {
-  position: absolute;
-  top: 2%;
-  right: 3%;
   background: none;
   border: none;
-  color: white;
+  color: #ffffff88;
   font-size: 25px;
   cursor: pointer;
   z-index: 99999;
@@ -823,12 +831,14 @@ body.loading {
     width: 70%;
     display: flex;
     justify-content: center;
+    border: 0.6px solid #7d83694a;
+    border-radius: 5px;
 }
 .location_address_link_wrap a{
   display: flex;
   align-items: center;
   padding: 3px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .location_address_link_wrap img{
   height: 20px;
