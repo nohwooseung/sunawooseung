@@ -39,62 +39,117 @@ const galleryImages = [
   ""
 ];
 
+let slider = null;
+let indicator = null;
+let currentIndex = 0;
+let startX = 0;
+
+// 새로운 슬라이드용 닫기 버튼 추가
 document.addEventListener("DOMContentLoaded", () => {
+  slider = document.getElementById("gallery-slider");
+  indicator = document.getElementById("gallery-indicator");
+
   const tiles = document.querySelectorAll(".gallery .tile img");
 
   tiles.forEach((img, index) => {
     const src = galleryImages[index];
     if (src && src.trim() !== "") {
-      img.setAttribute("src", src); // 반드시 src 속성으로 삽입
+      img.setAttribute("src", src);
     } else {
-      img.parentElement.style.display = "none"; // 이미지 없으면 숨김
+      img.parentElement.style.display = "none";
     }
   });
+
+  const gallery = document.querySelector(".gallery");
+  const seeMoreTile = document.createElement("div");
+  seeMoreTile.className = "tile see-more-tile";
+  seeMoreTile.innerHTML = '<div class="see-more-overlay">+ 사진 더 보기</div>';
+  gallery.appendChild(seeMoreTile);
+
+  seeMoreTile.addEventListener("click", () => {
+    document.getElementById("gallery-grid-popup").classList.add("show");
+    document.body.classList.add("no-scroll");
+  });
+
+  const gridContainer = document.getElementById("gallery-grid-inner");
+  galleryImages.forEach((src, idx) => {
+    const gridItem = document.createElement("div");
+    gridItem.className = "tile";
+    const img = document.createElement("img");
+    img.src = src;
+    img.addEventListener("click", () => {
+      openGallery(idx);
+    });
+    gridItem.appendChild(img);
+    gridContainer.appendChild(gridItem);
+  });
+
+  document.getElementById("grid-close-btn").addEventListener("click", () => {
+    document.getElementById("gallery-grid-popup").classList.remove("show");
+    document.body.classList.remove("no-scroll");
+  });
+
+  
+
+  // 슬라이드용 닫기 버튼 생성
+  const slideBackBtn = document.createElement("button");
+  slideBackBtn.className = "gallery-back-button";
+  slideBackBtn.innerHTML = '<i class="fas fa-solid fa-grip-vertical"></i>';
+  slideBackBtn.addEventListener("click", closeGallery);
+  document.querySelector(".gallery-popup-content").appendChild(slideBackBtn);
+
+// 이미지 6~8번째 (하단 3개)에 그라데이션 오버레이 추가
+tiles.forEach((img, index) => {
+  const src = galleryImages[index];
+  if (src && src.trim() !== "") {
+    img.setAttribute("src", src);
+
+    // 마지막 3개 타일 (index 6~8)에만 그라데이션 삽입
+    if (index >= 6) {
+      const gradient = document.createElement("div");
+      gradient.className = "tile-gradient";
+      img.parentElement.style.position = "relative";
+      img.parentElement.appendChild(gradient);
+    }
+
+  } else {
+    img.parentElement.style.display = "none";
+  }
 });
 
 
-const slider = document.getElementById("gallery-slider");
-const indicator = document.getElementById("gallery-indicator");
-let currentIndex = 0;
+});
 
-function initGallerySlider() {
-  slider.innerHTML = "";
-  galleryImages.forEach((src) => {
-    if (src && src.trim() !== "") {
-      const img = document.createElement("img");
-      img.src = src;
-      slider.appendChild(img);
-    }
-  });
-}
 
-function updateGallery() {
-  const total = slider.children.length;
-  const offset = -currentIndex * 90; // 이미지 하나당 90vw 기준
-  slider.style.transform = `translateX(${offset}vw)`;
-  indicator.textContent = `${currentIndex + 1} / ${total}`;
-}
 
 function openGallery(index) {
   currentIndex = index;
   initGallerySlider();
   updateGallery();
   document.getElementById("gallery-popup").classList.add("show");
-
-  // 스크롤 방지
+  document.getElementById("gallery-grid-popup").classList.remove("show");
   document.body.classList.add("no-scroll");
-  document.body.dataset.scrollY = window.scrollY; // 현재 위치 저장
-  document.body.style.top = `-${window.scrollY}px`; // 위치 고정
 }
 
 function closeGallery() {
   document.getElementById("gallery-popup").classList.remove("show");
+  document.getElementById("gallery-grid-popup").classList.add("show");
+}
 
-  // 스크롤 복구
-  document.body.classList.remove("no-scroll");
-  const scrollY = document.body.dataset.scrollY || "0";
-  document.body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY));
+function initGallerySlider() {
+  slider.innerHTML = "";
+  galleryImages.forEach((src) => {
+    const img = document.createElement("img");
+    img.src = src;
+    slider.appendChild(img);
+  });
+}
+
+function updateGallery() {
+  const total = slider.children.length;
+  const offset = -currentIndex * 90;
+  slider.style.transform = `translateX(${offset}vw)`;
+  indicator.textContent = `${currentIndex + 1} / ${total}`;
 }
 
 function prevImage() {
@@ -111,19 +166,17 @@ function nextImage() {
   }
 }
 
-let startX = 0;
-
-const galleryPopup = document.getElementById("gallery-popup");
-
-galleryPopup.addEventListener("touchstart", (e) => {
+document.getElementById("gallery-popup").addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
 
-galleryPopup.addEventListener("touchend", (e) => {
+document.getElementById("gallery-popup").addEventListener("touchend", (e) => {
   const deltaX = e.changedTouches[0].clientX - startX;
   if (deltaX > 50) prevImage();
   else if (deltaX < -50) nextImage();
 });
+
+
 
 // ==================== 로딩 화면 처리 ====================
 window.addEventListener("load", () => {
