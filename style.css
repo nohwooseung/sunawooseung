@@ -819,6 +819,8 @@ body.loading {
 
 .location_address_link_wrap div{
     padding: 3px 3px;
+    border: 0.5px solid #737a5e2b;
+    border-radius: 2px;
     margin: 0 8px;
     width: 70%;
     display: flex;
