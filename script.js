@@ -19,24 +19,24 @@ const galleryImages = [
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FddvIa4%2FbtsOVhF6z68%2FAAAAAAAAAAAAAAAAAAAAABOrBst7BBr85PE5y_IRUd1L0U5QiKLWZB_DHizBLvw7%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3Ddi3gI6MlD3ZKVA56RUNjlVjlX1U%253D",
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F2vtu1%2FbtsOWgsjBXw%2FAAAAAAAAAAAAAAAAAAAAAJXZWxl_eu_8ECAwPzFC24JWm8yYGiRW7tCqfl9dL8Un%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DJBJjZ6wLB29NhBqqHTW%252FQTY7LRU%253D",
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbC1xTi%2FbtsOUuFmKn4%2FAAAAAAAAAAAAAAAAAAAAAD4wohgzhEMwhTp4CWrvXgSJG8bocHam8Cy3bMcKMyfg%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D470cXoljRo6JFlVBHayzZz%252BMQY4%253D",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbHI3ab%2FbtsOXOoySME%2FAAAAAAAAAAAAAAAAAAAAAPDRVNssgqS4n5gp3k-tr_v-7MTxG3CUzeouGOU924w3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DOyT9gnvDAC7pFKFF%252B8OCu7ozHvo%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F28Ckt%2FbtsOWF6Jc8C%2FAAAAAAAAAAAAAAAAAAAAAEyricY_ce0SUloTmg-aWN4owKat86FF9oA3CTsgEJF7%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DHehu8VtXY5kQmk84e4QcDF0SMOc%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FzUkZR%2FbtsOUwcpl2D%2FAAAAAAAAAAAAAAAAAAAAAJplSvxaVlFa4mgOssCVAqiq1G4sIn_RSn_3borudqmr%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DIaWVTuT5QVljlg0Bz9l1XaNhlnA%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbkdyZX%2FbtsOUxWFEyG%2FAAAAAAAAAAAAAAAAAAAAAKKX9RBWHIhYOqCNMzpAJbm317Y5qgJAAWjuXiepycDW%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D2jNIP7DkieYkvvqD7YQ3Oa0ZY1Y%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbWMVf8%2FbtsOVJBNCgj%2FAAAAAAAAAAAAAAAAAAAAAGxIvy3xeSZFtPsB7GleqCMGDONg41-XCSt3i3dn8EL6%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DjPcvIQ6joghrsxYW2x%252FOTLTPgKk%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D",
+  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F00jod%2FbtsOXIhFmdw%2FAAAAAAAAAAAAAAAAAAAAAP7TXC7svt6OrhaN-B2st1fBGz-bK72iHYqF1T3pf_pS%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3DV9JTBnKmqE5ueOvq1vz14EWHw70%253D"
 ];
 
 let slider = null;
@@ -180,9 +180,7 @@ document.getElementById("gallery-popup").addEventListener("touchend", (e) => {
 
 // ==================== 로딩 화면 처리 ====================
 window.addEventListener("load", () => {
-  const bgm = document.getElementById("bgm");
   const text1 = document.getElementById("text1");
-  const text2 = document.getElementById("text2");
   const text3 = document.getElementById("text3");
   const loadingScreen = document.getElementById("loading-screen");
   const loadingText = document.getElementById("loading-text");
@@ -193,8 +191,7 @@ window.addEventListener("load", () => {
 
     // 이후 텍스트 순차 등장
     setTimeout(() => text1.style.opacity = 1, 0);
-    setTimeout(() => text2.style.opacity = 1, 1500);
-    setTimeout(() => text3.style.opacity = 1, 3000);
+    setTimeout(() => text3.style.opacity = 1, 1500);
 
     // 전체 로딩 화면 제거
     setTimeout(() => {
@@ -203,7 +200,7 @@ window.addEventListener("load", () => {
         loadingScreen.style.display = "none";
         document.body.classList.remove("loading");
       }, 500);
-    }, 4500);
+    }, 3500);
 
   }, 1000);
 });
@@ -306,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const today = new Date();
   const diffTime = weddingDate - today;
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  countdownEl.innerHTML = `노우승 <i class="fas fa-solid fa-heart" style="color:#b1ddb1;"></i> 음선아 의 결혼식 ${diffDays}일 전`;
+  countdownEl.innerHTML = `노우승 <i class="fas fa-solid fa-heart" style="color:#7b855d;"></i> 음선아 의 결혼식 ${diffDays}일 전`;
 
   const calendarEl = document.getElementById("calendar");
   const daysInMonth = 31;
