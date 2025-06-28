@@ -818,13 +818,13 @@ body.loading {
 }
 
 .location_address_link_wrap div{
-  padding: 3px 0;
-  border: 1px solid #737a5e2b;
-  border-radius: 3px;
-  margin: 0 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    padding: 3px 3px;
+    border: 0.5px solid #737a5e2b;
+    border-radius: 2px;
+    margin: 0 8px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
 }
 .location_address_link_wrap a{
   display: flex;
