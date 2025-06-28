@@ -831,7 +831,7 @@ body.loading {
     width: 70%;
     display: flex;
     justify-content: center;
-    border: 0.6px solid #7d83694a;
+    border: 1px solid #7d83694a;
     border-radius: 5px;
 }
 .location_address_link_wrap a{
