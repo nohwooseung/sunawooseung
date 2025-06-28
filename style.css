@@ -314,7 +314,7 @@ body:not(.loading) .popup {
   max-height: 90vh;
   overflow-y: auto;
   margin: 10px 30px;
-  max-height: 65%;
+  max-height: 80%;
 }
 
 #gallery-grid-inner {
@@ -644,6 +644,16 @@ body.loading {
 .loading-screen.fade-out {
   opacity: 0;
   pointer-events: none;
+}
+
+/* 추가: 처음 뜨는 Loading... 텍스트 */
+.loading-text#loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #888;
 }
 
 .loading-text {
