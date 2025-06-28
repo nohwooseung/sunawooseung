@@ -314,7 +314,7 @@ body:not(.loading) .popup {
   max-height: 90vh;
   overflow-y: auto;
   margin: 10px 30px;
-  max-height: 80%;
+  max-height: 65%;
 }
 
 #gallery-grid-inner {
