@@ -421,18 +421,34 @@ window.addEventListener("beforeunload", () => {
 });
 
 
+// ==================== 혼주 연락처 팝업 ====================
+
 document.addEventListener("DOMContentLoaded", () => {
   const parentPopup = document.getElementById("parent-popup");
+  const popupBox = parentPopup.querySelector(".popup-box");
   const openBtn = document.getElementById("parent-contact-btn");
   const closeBtn = document.getElementById("parent-popup-close");
 
+  // 열기
   openBtn.addEventListener("click", () => {
     parentPopup.style.display = "flex";
+    document.body.classList.add("no-scroll");
   });
 
+   // 닫기 버튼 클릭
   closeBtn.addEventListener("click", () => {
     parentPopup.style.display = "none";
+    document.body.classList.remove("no-scroll");
   });
+
+  // 팝업 배경 클릭 시 닫기
+  parentPopup.addEventListener("click", (e) => {
+    if (!popupBox.contains(e.target)) {
+      parentPopup.style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }
+  });
+
 });
 
 // ==================== 푸터 ====================
