@@ -25,7 +25,7 @@ bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 
 // ==================== 방명록 =====================
 
-fetch("https://script.google.com/macros/s/AKfycbyY60Rv5SHCkPieisbqnDq8hoZz4fE5PjKH9OfutqLNEIvTEiVT7671LsPYicKct64zpQ/exec")
+fetch("https://script.google.com/macros/s/AKfycbytln9s-9iz_aNTM0dcJ-gEld4ARVmKHum9rt0KhsIqutC_kAc5gLL4HD-n1vJKzwySWw/exec")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("guestbook-list");
