@@ -23,6 +23,19 @@ observer.observe(video);
 const bgm = document.getElementById("bgm");
 bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 
+// ==================== 방명록 =====================
+
+fetch("https://script.google.com/macros/s/AKfycbyY60Rv5SHCkPieisbqnDq8hoZz4fE5PjKH9OfutqLNEIvTEiVT7671LsPYicKct64zpQ/exec")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("guestbook-list");
+    container.innerHTML = "";
+    data.reverse().forEach(entry => {
+      const el = document.createElement("div");
+      el.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}<br><small>${entry.timestamp}</small><hr>`;
+      container.appendChild(el);
+    });
+  });
 
 // ==================== 갤러리 팝업 이미지 배열 ====================
 const galleryImages = [
