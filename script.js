@@ -4,7 +4,7 @@ document.addEventListener('dblclick', function(e) {
   e.preventDefault();
 });
 
-// ==================== 영상 플레이 ====================
+// ==================== 영상, 배경음악 플레이 ====================
 
 const video = document.getElementById("moving_video11");
 
@@ -19,6 +19,9 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 observer.observe(video);
+
+const bgm = document.getElementById("bgm");
+bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 
 
 // ==================== 갤러리 팝업 이미지 배열 ====================
