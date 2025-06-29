@@ -638,6 +638,13 @@ body:not(.loading) .popup {
   transform: scale(1.2);
 }
 
+.acc_title{
+  margin: 10px 20px;
+}
+
+.acc_title strong{
+  font-size: 13px;
+}
 
 /* ============================================
    🔵 달력 및 카운트다운
