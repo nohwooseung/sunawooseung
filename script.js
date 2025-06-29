@@ -4,6 +4,22 @@ document.addEventListener('dblclick', function(e) {
   e.preventDefault();
 });
 
+// ==================== 영상 플레이 ====================
+
+const video = document.getElementById("moving_video11");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      video.play();  // 다시 화면에 보이면 play 시도
+    }
+  });
+}, {
+  threshold: 0.5  // 비디오가 50% 이상 보일 때 실행
+});
+
+observer.observe(video);
+
 
 // ==================== 갤러리 팝업 이미지 배열 ====================
 const galleryImages = [
