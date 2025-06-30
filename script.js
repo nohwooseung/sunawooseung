@@ -26,6 +26,7 @@ bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 // ==================== 방명록 =====================
 
 
+
 // ==================== 갤러리 팝업 이미지 배열 ====================
 const galleryImages = [
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FCFxAm%2FbtsOVcqD2iz%2FAAAAAAAAAAAAAAAAAAAAANLD45iUAS0Vf_WZPzcxeXrH3F0jzY2bfg5XlJmFu3SL%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1751295599%26allow_ip%3D%26allow_referer%3D%26signature%3D8y316FC0KrgbJTD2OWH2P2iJYiI%253D",
@@ -327,12 +328,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ==================== 카운트다운 및 달력 ====================
 document.addEventListener("DOMContentLoaded", () => {
-  const countdownEl = document.getElementById("countdown");
-  const weddingDate = new Date("2025-10-25");
-  const today = new Date();
-  const diffTime = weddingDate - today;
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  countdownEl.innerHTML = `노우승 <i class="fas fa-solid fa-heart" style="color:#7b855d;"></i> 음선아 의 결혼식 ${diffDays}일 전`;
+const targetDate = new Date("2025-10-25T00:00:00");
+
+  const updateCountdown = () => {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) return;
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / (3600 * 24));
+    const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    document.getElementById("days-left").textContent = days;
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   const calendarEl = document.getElementById("calendar");
   const daysInMonth = 31;
