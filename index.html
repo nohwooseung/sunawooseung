@@ -108,12 +108,40 @@
 
 <!-- 캘린더 섹션 -->
 
-    <div class="section_color section">
+  <div class="section_color section">
       <div class="title" id="title_sub">캘린더</div>
-      <div style="margin-bottom: 10px;">2025년 10월 25일</div>
-      <div>토요일 오후 12시 30분</div>
+      <div style="font-size: 15px; font-weight: 800;">
+        <div style="margin-bottom: 5px;">2025년 10월 25일</div>
+        <div>토요일 오후 12시 30분</div>
+      </div>
+
       <div id="calendar"></div>
-      <div id="countdown"></div>
+      <div id="countdown-container">
+      <div id="countdown-box">
+      <div class="time-box">
+        <span id="days">0</span>
+        <div class="label">DAYS</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="time-box">
+        <span id="hours">0</span>
+        <div class="label">HOUR</div>
+      </div>
+        <div class="colon">:</div>
+        <div class="time-box">
+          <span id="minutes">0</span>
+          <div class="label">MIN</div>
+        </div>
+      <div class="colon">:</div>
+        <div class="time-box">
+          <span id="seconds">0</span>
+          <div class="label">SEC</div>
+        </div>
+      </div>
+        <p class="countdown-text">
+          노우승 <i class="fas fa-heart heart-icon"></i> 음선아의 결혼식이 <span id="days-left">0</span>일 남았습니다.
+        </p>
+      </div>
     </div>
 
 <!-- 갤러리 섹션 -->
@@ -132,7 +160,7 @@
   </div>
 </div>
 
-  <!-- 갤러리 팝업 -->
+<!-- 갤러리 팝업 -->
   <div id="gallery-popup" class="gallery-popup">
   <div class="gallery-popup-bg" onclick="closeGallery()"></div>
 
@@ -146,7 +174,7 @@
   
   <div class="gallery-slider-wrapper">
     <div class="gallery-slider" id="gallery-slider">
-      <!-- 이미지들이 js에서 삽입됨 -->
+    <!-- 이미지들이 js에서 삽입됨 -->
     </div>
   </div>
 
@@ -241,7 +269,7 @@
       <div class="copyright">
         <p>MADE BY SUNA & WOOSEUNG</p>
       </div>
-    </div>
+    </div> 
 
 
   <!-- 지도 -->
