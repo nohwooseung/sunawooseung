@@ -862,13 +862,14 @@ body:not(.loading) .popup {
   flex: 1;
   font-weight: bold;
   color: #6c754a;
+   font-size: 14px;
 }
 
 .entry-message {
   text-align: center;
   flex: 2;
   color: #333;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .entry-date {
