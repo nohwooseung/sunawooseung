@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPage = 1;
   let allEntries = [];
 
-  // 글자수 제한
+  // 이름 입력 제한
   nameInput.addEventListener("input", () => {
     if (nameInput.value.length > NAME_MAX_LENGTH) {
       alert(`이름은 ${NAME_MAX_LENGTH}자 이내로 작성해주세요.`);
@@ -516,6 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 메시지 입력 제한
   messageInput.addEventListener("input", () => {
     if (messageInput.value.length > MESSAGE_MAX_LENGTH) {
       alert(`메시지는 ${MESSAGE_MAX_LENGTH}자 이내로 작성해주세요.`);
@@ -523,9 +524,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 날짜 포맷 함수
-  function formatDate(isoString) {
-    const date = new Date(isoString);
+  // 날짜 포맷 처리 (서버 timestamp 또는 문자열 대응)
+  function formatDate(timestamp) {
+    if (!timestamp) return "";
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, "0");
     const dd = String(date.getDate()).padStart(2, "0");
@@ -537,8 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 페이지 렌더링
   function renderPage(page) {
     const start = (page - 1) * ITEMS_PER_PAGE;
-    const end = start + ITEMS_PER_PAGE;
-    const entries = allEntries.slice(start, end);
+    const entries = allEntries.slice(start, start + ITEMS_PER_PAGE);
 
     list.classList.add("fade-out");
 
@@ -562,15 +563,15 @@ document.addEventListener("DOMContentLoaded", () => {
     updateIndicators();
   }
 
-  // 인디케이터 생성
+  // 인디케이터 표시
   function updateIndicators() {
-    let indicatorWrapper = document.querySelector(".pagination-wrapper");
-    if (!indicatorWrapper) {
-      indicatorWrapper = document.createElement("div");
-      indicatorWrapper.className = "pagination-wrapper";
-      list.after(indicatorWrapper);
+    let wrapper = document.querySelector(".pagination-wrapper");
+    if (!wrapper) {
+      wrapper = document.createElement("div");
+      wrapper.className = "pagination-wrapper";
+      list.after(wrapper);
     }
-    indicatorWrapper.innerHTML = "";
+    wrapper.innerHTML = "";
 
     const totalPages = Math.ceil(allEntries.length / ITEMS_PER_PAGE);
     for (let i = 1; i <= totalPages; i++) {
@@ -581,16 +582,17 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage = i;
         renderPage(currentPage);
       });
-      indicatorWrapper.appendChild(dot);
+      wrapper.appendChild(dot);
     }
   }
 
-  // 터치 슬라이드
+  // 모바일 슬라이드 이벤트
   let startX = 0;
-  list.addEventListener("touchstart", (e) => {
+  list.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
   });
-  list.addEventListener("touchend", (e) => {
+
+  list.addEventListener("touchend", e => {
     const endX = e.changedTouches[0].clientX;
     const diff = startX - endX;
     const totalPages = Math.ceil(allEntries.length / ITEMS_PER_PAGE);
@@ -604,14 +606,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 글 저장
-  form.addEventListener("submit", async (e) => {
+  // Firestore 실시간 로딩
+  db.collection("guestbook")
+    .orderBy("timestamp", "desc")
+    .onSnapshot(snapshot => {
+      allEntries = [];
+      snapshot.forEach(doc => allEntries.push(doc.data()));
+      renderPage(currentPage);
+    });
+
+  // 글 작성 및 저장
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     const name = nameInput.value.trim();
     const message = messageInput.value.trim();
-    if (!name || !message) return;
 
-    if (name.length > NAME_MAX_LENGTH || message.length > MESSAGE_MAX_LENGTH) return;
+    if (!name || !message) {
+      alert("이름과 메시지를 모두 입력해주세요.");
+      return;
+    }
+
+    if (name.length > NAME_MAX_LENGTH || message.length > MESSAGE_MAX_LENGTH) {
+      alert("입력값이 글자 수 제한을 초과했습니다.");
+      return;
+    }
 
     await db.collection("guestbook").add({
       name,
@@ -620,32 +638,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.reset();
-
-    // 새로고침 없이 리스트 갱신
-    setTimeout(() => {
-      loadAndRender();
-    }, 1000);
   });
-
-  // 수동 데이터 로딩 함수
-  function loadAndRender() {
-    db.collection("guestbook")
-      .orderBy("timestamp", "desc")
-      .get()
-      .then(snapshot => {
-        allEntries = [];
-        snapshot.forEach(doc => allEntries.push(doc.data()));
-        renderPage(currentPage);
-      });
-  }
-
-  // 초기에 실시간 감지 + 첫 렌더
-  db.collection("guestbook")
-    .orderBy("timestamp", "desc")
-    .onSnapshot(snapshot => {
-      allEntries = [];
-      snapshot.forEach(doc => allEntries.push(doc.data()));
-      renderPage(currentPage);
-    });
 });
-
