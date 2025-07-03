@@ -23,9 +23,6 @@ observer.observe(video);
 const bgm = document.getElementById("bgm");
 bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 
-// ==================== 방명록 =====================
-
-
 
 // ==================== 갤러리 팝업 이미지 배열 ====================
 const galleryImages = [
@@ -255,6 +252,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // 팝업 열릴 때 (이미 열려 있음)
   document.body.classList.add("no-scroll");
 
+  // 배경을 클릭하면 팝업 닫힘
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+      document.body.classList.remove("no-scroll");
+
+      // 배경음악 자동 재생
+      if (bgm.paused) {
+        bgm.play().then(() => {
+          toggleBtn.innerHTML = `<i class="fas fa-solid fa-pause" aria-hidden="true"></i>`;
+        }).catch(() => {
+          console.log("Autoplay blocked.");
+        });
+      }
+    }
+  });
+
+
+
   // 일단 재생 안됨 상태 유지
   bgm.pause();
   toggleBtn.innerHTML = `<i class="fas fa-solid fa-play" aria-hidden="true"></i>`; // ▶️ 아이콘
@@ -284,28 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleBtn.innerHTML = `<i class="fas fa-solid fa-play" aria-hidden="true"></i>`; // ▶️
     }
   });
-
-
-    // 배경을 클릭하면 팝업 닫힘
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.style.display = "none";
-      document.body.classList.remove("no-scroll");
-
-      // 배경음악 자동 재생
-      if (bgm.paused) {
-        bgm.play().then(() => {
-          toggleBtn.innerHTML = `<i class="fas fa-solid fa-pause" aria-hidden="true"></i>`;
-        }).catch(() => {
-          console.log("Autoplay blocked.");
-        });
-      }
-    }
-  });
-
 });
-
-
 
 // ==================== 섹션 페이드인 ====================
 document.addEventListener("DOMContentLoaded", () => {
