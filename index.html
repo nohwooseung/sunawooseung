@@ -261,6 +261,20 @@
     </div>
 
     <!-- 푸터 -->
+
+    <section id="guestbook" class="section">
+      <div class="title" id="title_sub">축하 메세지</div>
+
+      <form id="guestbook-form">
+        <input type="text" id="guest-name" placeholder="이름 (5자 이내)" maxlength="5" required />
+        <textarea id="guest-message" placeholder="메시지 (100자 이내)" maxlength="100" required></textarea>
+        <button type="submit" class="btn btn_color">작성하기</button>
+      </form>
+
+      <div id="guestbook-list" class="guestbook_list_s"></div>
+    </section>
+
+
     
     <div class="footer">
       <hr class="footer-divider" />
@@ -268,7 +282,10 @@
       <hr class="footer-divider" />
       <div class="copyright">
         <p>MADE BY SUNA & WOOSEUNG</p>
+      </div>
     </div> 
+
+
 
 
   <!-- 지도 -->
@@ -332,6 +349,32 @@
     <div id="gallery-grid-inner" class="gallery-grid"></div>
   </div>
 </div>
+
+
+
+
+
+<!-- Firebase SDK -->
+<!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsiyCJOZftRiOFmU8CH0S20i33p8lvag8",
+    authDomain: "my-wedding-4d903.firebaseapp.com",
+    projectId: "my-wedding-4d903",
+    storageBucket: "my-wedding-4d903.firebasestorage.app",
+    messagingSenderId: "109505764214",
+    appId: "1:109505764214:web:f1de69b12e580a931df857",
+    measurementId: "G-Q52ZZT6KXF"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
 
 <script src="script.js"></script>
 </body>
