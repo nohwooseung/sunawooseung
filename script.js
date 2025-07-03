@@ -271,6 +271,20 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Autoplay blocked.");
       });
     }
+  });
+
+  // 🎵 수동 음악 재생/정지
+  toggleBtn.addEventListener("click", () => {
+    if (bgm.paused) {
+      bgm.play().then(() => {
+        toggleBtn.innerHTML = `<i class="fas fa-solid fa-pause" aria-hidden="true"></i>`; // ⏸️
+      });
+    } else {
+      bgm.pause();
+      toggleBtn.innerHTML = `<i class="fas fa-solid fa-play" aria-hidden="true"></i>`; // ▶️
+    }
+  });
+
 
     // 배경을 클릭하면 팝업 닫힘
   popup.addEventListener("click", (e) => {
@@ -288,20 +302,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  });
 
-  // 🎵 수동 음악 재생/정지
-  toggleBtn.addEventListener("click", () => {
-    if (bgm.paused) {
-      bgm.play().then(() => {
-        toggleBtn.innerHTML = `<i class="fas fa-solid fa-pause" aria-hidden="true"></i>`; // ⏸️
-      });
-    } else {
-      bgm.pause();
-      toggleBtn.innerHTML = `<i class="fas fa-solid fa-play" aria-hidden="true"></i>`; // ▶️
-    }
-  });
 });
+
+
 
 // ==================== 섹션 페이드인 ====================
 document.addEventListener("DOMContentLoaded", () => {
