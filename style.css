@@ -822,10 +822,13 @@ body:not(.loading) .popup {
 #guestbook-form input,
 #guestbook-form textarea {
   padding: 12px;
-  font-size: 16px;
+  font-size: 13px;
   border: 1px solid #ccc;
   border-radius: 6px;
   resize: none;
+   align-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #guestbook-form button {
