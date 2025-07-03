@@ -797,9 +797,120 @@ body:not(.loading) .popup {
    🔵 방명록
 ============================================ */
 
+.guestbook-container {
+  max-width: 90%;
+  margin: 50px auto;
+  background: #f8f9f1;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Noto Serif KR', serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.guestbook-container h3 {
+  text-align: center;
+  color: #6c754a;
+  margin-bottom: 20px;
+}
+
+#guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#guestbook-form input,
+#guestbook-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: none;
+}
+
+#guestbook-form button {
+  border: none;
+  cursor: pointer;
+  margin: 0 0 20px 0;
+}
+
+#guestbook-form button:hover {
+  background-color: #7d9157;
+}
+
+#guestbook-entries {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guestbook-entry {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  align-items: center;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.entry-name {
+  text-align: left;
+  flex: 1;
+  font-weight: bold;
+  color: #6c754a;
+}
+
+.entry-message {
+  text-align: center;
+  flex: 2;
+  color: #333;
+}
+
+.entry-date {
+  text-align: right;
+  flex: 1;
+  font-size: 13px;
+  color: #aaa;
+}
 
 
+.guestbook_list_s{
+  margin-top: 20px;
+}
 
+/* 페이드 효과 */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 인디케이터 */
+.pagination-wrapper {
+  text-align: center;
+  margin-top: 15px;
+}
+.indicator {
+  cursor: pointer;
+  font-size: 12px; /* 작게 조정 */
+  color: #ccc;
+  margin: 0 4px;
+  user-select: none;
+}
+.active-indicator {
+  color: #9caf71;
+}
 
 
 /* ============================================
