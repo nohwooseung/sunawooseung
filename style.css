@@ -798,24 +798,6 @@ body:not(.loading) .popup {
 ============================================ */
 
 
-.commentbox {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.commentbox-header {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 18px;
-}
-
-.commentbox .commentbox-comment {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
 
 
 
