@@ -495,3 +495,139 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 })
+// ==================== 방명록 ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("guestbook-form");
+  const nameInput = document.getElementById("guest-name");
+  const messageInput = document.getElementById("guest-message");
+  const list = document.getElementById("guestbook-list");
+
+  const NAME_MAX_LENGTH = 5;
+  const MESSAGE_MAX_LENGTH = 100;
+  const ITEMS_PER_PAGE = 5;
+  let currentPage = 1;
+  let allEntries = [];
+
+  // 글자수 제한
+  nameInput.addEventListener("input", () => {
+    if (nameInput.value.length > NAME_MAX_LENGTH) {
+      alert(`이름은 ${NAME_MAX_LENGTH}자 이내로 작성해주세요.`);
+      nameInput.value = nameInput.value.slice(0, NAME_MAX_LENGTH);
+    }
+  });
+
+  messageInput.addEventListener("input", () => {
+    if (messageInput.value.length > MESSAGE_MAX_LENGTH) {
+      alert(`메시지는 ${MESSAGE_MAX_LENGTH}자 이내로 작성해주세요.`);
+      messageInput.value = messageInput.value.slice(0, MESSAGE_MAX_LENGTH);
+    }
+  });
+
+  // 날짜 포맷 함수
+  function formatDate(isoString) {
+    const date = new Date(isoString);
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const dd = String(date.getDate()).padStart(2, "0");
+    const hh = String(date.getHours()).padStart(2, "0");
+    const min = String(date.getMinutes()).padStart(2, "0");
+    return `${yyyy}.${mm}.${dd} ${hh}:${min}`;
+  }
+
+  // 페이지 렌더링
+  function renderPage(page) {
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    const entries = allEntries.slice(start, end);
+
+    list.classList.add("fade-out");
+
+    setTimeout(() => {
+      list.innerHTML = "";
+      entries.forEach(data => {
+        const entry = document.createElement("div");
+        entry.className = "guestbook-entry";
+        entry.innerHTML = `
+          <div class="entry-name">${data.name}</div>
+          <div class="entry-message">${data.message}</div>
+          <div class="entry-date">${formatDate(data.timestamp)}</div>
+        `;
+        list.appendChild(entry);
+      });
+      list.classList.remove("fade-out");
+      list.classList.add("fade-in");
+      setTimeout(() => list.classList.remove("fade-in"), 300);
+    }, 200);
+
+    updateIndicators();
+  }
+
+  // 인디케이터 생성
+  function updateIndicators() {
+    let indicatorWrapper = document.querySelector(".pagination-wrapper");
+    if (!indicatorWrapper) {
+      indicatorWrapper = document.createElement("div");
+      indicatorWrapper.className = "pagination-wrapper";
+      list.after(indicatorWrapper);
+    }
+    indicatorWrapper.innerHTML = "";
+
+    const totalPages = Math.ceil(allEntries.length / ITEMS_PER_PAGE);
+    for (let i = 1; i <= totalPages; i++) {
+      const dot = document.createElement("span");
+      dot.className = "indicator" + (i === currentPage ? " active-indicator" : "");
+      dot.textContent = "●";
+      dot.addEventListener("click", () => {
+        currentPage = i;
+        renderPage(currentPage);
+      });
+      indicatorWrapper.appendChild(dot);
+    }
+  }
+
+  // 슬라이드 터치 이벤트 추가
+  let startX = 0;
+  list.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  list.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    const totalPages = Math.ceil(allEntries.length / ITEMS_PER_PAGE);
+
+    if (diff > 50 && currentPage < totalPages) {
+      currentPage++;
+      renderPage(currentPage);
+    } else if (diff < -50 && currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+    }
+  });
+
+  // DB 로딩
+  db.collection("guestbook")
+    .orderBy("timestamp", "desc")
+    .onSnapshot(snapshot => {
+      allEntries = [];
+      snapshot.forEach(doc => allEntries.push(doc.data()));
+      renderPage(currentPage);
+    });
+
+  // 글 저장
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+    if (!name || !message) return;
+    if (name.length > NAME_MAX_LENGTH || message.length > MESSAGE_MAX_LENGTH) return;
+
+    await db.collection("guestbook").add({
+      name,
+      message,
+      timestamp: new Date().toISOString()
+    });
+
+    form.reset();
+  });
+});
