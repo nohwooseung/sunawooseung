@@ -585,12 +585,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 슬라이드 터치 이벤트 추가
+  // 터치 슬라이드
   let startX = 0;
   list.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
-
   list.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
     const diff = startX - endX;
@@ -605,7 +604,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // DB 로딩
+  // 글 저장
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+    if (!name || !message) return;
+
+    if (name.length > NAME_MAX_LENGTH || message.length > MESSAGE_MAX_LENGTH) return;
+
+    await db.collection("guestbook").add({
+      name,
+      message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    form.reset();
+
+    // 새로고침 없이 리스트 갱신
+    setTimeout(() => {
+      loadAndRender();
+    }, 1000);
+  });
+
+  // 수동 데이터 로딩 함수
+  function loadAndRender() {
+    db.collection("guestbook")
+      .orderBy("timestamp", "desc")
+      .get()
+      .then(snapshot => {
+        allEntries = [];
+        snapshot.forEach(doc => allEntries.push(doc.data()));
+        renderPage(currentPage);
+      });
+  }
+
+  // 초기에 실시간 감지 + 첫 렌더
   db.collection("guestbook")
     .orderBy("timestamp", "desc")
     .onSnapshot(snapshot => {
@@ -613,21 +647,5 @@ document.addEventListener("DOMContentLoaded", () => {
       snapshot.forEach(doc => allEntries.push(doc.data()));
       renderPage(currentPage);
     });
-
-  // 글 저장
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const name = nameInput.value.trim();
-    const message = messageInput.value.trim();
-    if (!name || !message) return;
-    if (name.length > NAME_MAX_LENGTH || message.length > MESSAGE_MAX_LENGTH) return;
-
-    await db.collection("guestbook").add({
-      name,
-      message,
-      timestamp: new Date().toISOString()
-    });
-
-    form.reset();
-  });
 });
+
