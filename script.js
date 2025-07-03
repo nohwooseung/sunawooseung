@@ -271,6 +271,23 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Autoplay blocked.");
       });
     }
+
+    // 배경을 클릭하면 팝업 닫힘
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+      document.body.classList.remove("no-scroll");
+
+      // 배경음악 자동 재생
+      if (bgm.paused) {
+        bgm.play().then(() => {
+          toggleBtn.innerHTML = `<i class="fas fa-solid fa-pause" aria-hidden="true"></i>`;
+        }).catch(() => {
+          console.log("Autoplay blocked.");
+        });
+      }
+    }
+  });
   });
 
   // 🎵 수동 음악 재생/정지
