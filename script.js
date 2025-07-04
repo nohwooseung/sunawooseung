@@ -137,7 +137,6 @@ tiles.forEach((img, index) => {
 });
 
 
-
 function openGallery(index) {
   currentIndex = index;
   initGallerySlider();
@@ -201,6 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
       galleryPopup.classList.remove("show");
       document.body.classList.remove("no-scroll");
     });
+  }
+});
+
+
+document.getElementById("gallery-grid-popup").addEventListener("click", (e) => {
+  // 내부 콘텐츠가 아닌 배경을 클릭한 경우에만 닫기
+  if (e.target === e.currentTarget) {
+    e.currentTarget.classList.remove("show");
+    document.body.classList.remove("no-scroll");
   }
 });
 
