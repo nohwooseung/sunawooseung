@@ -47,9 +47,7 @@ body {
 .text_color p{
   display: inline;
 }
-.text_color p:first-of-type{
-  margin-right: 20px;
-}
+
 
 .text_color_N{
   color:#6e7753;
