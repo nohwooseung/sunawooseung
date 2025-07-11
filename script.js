@@ -49,7 +49,7 @@ const galleryImages = [
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FCIa7B%2FbtsO4Pid3LZ%2FAAAAAAAAAAAAAAAAAAAAAHZDR-05e7eTCZmoQrgEzX-ltDeYn2QaO_HDRNzUcXp8%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DoRi%252BVrX%252BoBM1TzXr1%252FRGz950F%252Bs%253D",
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FectM4j%2FbtsO6h5xY7r%2FAAAAAAAAAAAAAAAAAAAAAMpu1AxggsJEc_lwAqofy957z70-VXJ6CQCj9CRenwUK%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DFoS3JP5Vw%252Bxl%252BO6TgFnDkmknHNQ%253D",
   "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeEaSrW%2FbtsO6xgdRR8%2FAAAAAAAAAAAAAAAAAAAAAJs8Mmt8kKET2NdR429-dm3CnUAEdwAaDkZpSLY-zRVY%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D3%252FKO3tiXRXi66iGGT1aX8fJuPaE%253D",
-  "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcwtHLg%2FbtsO5F7fs4a%2FAAAAAAAAAAAAAAAAAAAAADIvFr1T7pkzrayv0UoiP1u0frU0bcxYSBHduvRSni3u%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DPaR3jbc3Cu6gTW%252BAL7N9HttiNys%253D"
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752213848/null_ubnjqu.jpg"
 ];
 
 let slider = null;
