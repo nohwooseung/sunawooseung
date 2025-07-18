@@ -29,14 +29,8 @@ const galleryImages = [
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed10_p24p1k.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215759/wed17_fgezvi.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215754/wed19_zeqsrv.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed9_o9egkl.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215757/wed20_yiblau.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed16_klmctg.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed24_vbtygr.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed1_xsirmi.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed22_psnk91.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed2_flcwmo.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed7_xmloth.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed15_grcnkt.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed8_bfhiei.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215754/wed6_qvb1p0.jpg",
@@ -49,7 +43,13 @@ const galleryImages = [
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215753/wed13_ijqpu1.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed21_ucel9t.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed12_gmxskb.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed11_uczhse.jpg"
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed11_uczhse.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed9_o9egkl.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed24_vbtygr.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed1_xsirmi.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed22_psnk91.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed2_flcwmo.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed7_xmloth.jpg"
 ];
 
 let slider = null;
