@@ -28,7 +28,7 @@ bgm.volume = 0.8; // 0.0 ~ 1.0 사이 값 (예: 30% 볼륨)
 const galleryImages = [
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215756/wed10_p24p1k.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215759/wed17_fgezvi.jpg",
-  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215754/wed19_zeqsrv.jpg",
+  "https://res.cloudinary.com/dua5kee9y/image/upload/v1752818170/DSC06706_copy_uojqic.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215757/wed20_yiblau.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215752/wed16_klmctg.jpg",
   "https://res.cloudinary.com/dua5kee9y/image/upload/v1752215755/wed15_grcnkt.jpg",
